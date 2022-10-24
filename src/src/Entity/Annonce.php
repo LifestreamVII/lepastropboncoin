@@ -1,99 +1,96 @@
 <?php
-    namespace App\Entity;
 
-    use App\Repository\AnnonceRepository;
-    use Doctrine\DBAL\Types\Types;
-    use Doctrine\ORM\Mapping as ORM;
-    use DateTime;
+namespace App\Entity;
 
-    /**
-     * @ORM\Entity(repositoryClass=AnnonceRepository::class)
-     */
+use App\Repository\AnnonceRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
 
-    class Annonce {
-        /**
-         * @ORM\Id
-         * @ORM\GeneratedValue
-         * @ORM\Column(type="integer")
-         */
-        private $id;
+#[ORM\Entity(repositoryClass: AnnonceRepository::class)]
+class Annonce
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
-        /**
-         * @ORM\Column(type="string", length=255)
-         */
-        private $titre;
+    #[ORM\Column(length: 255)]
+    private ?string $titre = null;
 
-        /**
-         * @ORM\Column(type="string", length=255, nullable: true)
-         */
-        private $description = null;
+    #[ORM\Column(length: 100)]
+    private ?string $auteur = null;
 
-        /**
-         * @ORM\Column(type="int")
-         */
-        private $prix;
+    #[ORM\Column(nullable: true)]
+    private ?float $prix = null;
 
-        /**
-         * @ORM\Column(type="datetime")
-         */
-        private $datePublication = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
 
-        public function __construct()
-        {
-            $this->datePublication = new \DateTime();
-        }
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
 
-        public function getId(): ?int
-        {
-            return $this->id;
-        }
-
-        public function getTitre(): ?string
-        {
-            return $this->titre;
-        }
-
-        public function setTitre(?string $titre): self
-        {
-            $this->titre = $titre;
-
-            return $this;
-        }
-
-        public function getDescription(): ?string
-        {
-            return $this->description;
-        }
-
-        public function setDescription(?string $description): self
-        {
-            $this->description = $description;
-            
-            return $this;
-        }
-
-        public function getPrix(): ?int
-        {
-            return $this->prix;
-        }
-
-        public function setPrix(?int $prix): self
-        {
-            $this->prix = $prix;
-            
-            return $this;
-        }
-
-        public function getDatePublication(): ?\DateTime
-        {
-            return $this->datePublication;
-        }
-
-        public function setDatePublication(?\DateTime $datePublication): self
-        {
-            $this->datePublication = $datePublication;
-            
-            return $this;
-        }
+    public function getId(): ?int
+    {
+        return $this->id;
     }
-?>
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getAuteur(): ?string
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(string $auteur): self
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?float $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+}

@@ -4,7 +4,6 @@
     use App\Repository\AnnonceRepository;
     use Doctrine\DBAL\Types\Types;
     use Doctrine\ORM\Mapping as ORM;
-    use Gedmo\Timestampable\Traits\TimestampableEntity;
     use DateTime;
 
     /**
@@ -36,9 +35,13 @@
 
         /**
          * @ORM\Column(type="datetime")
-         * @Gedmo\Timestampable(on="create")
          */
         private $datePublication = null;
+
+        public function __construct()
+        {
+            $this->datePublication = new \DateTime();
+        }
 
         public function getId(): ?int
         {
@@ -53,6 +56,7 @@
         public function setTitre(?string $titre): self
         {
             $this->titre = $titre;
+
             return $this;
         }
 
@@ -64,6 +68,7 @@
         public function setDescription(?string $description): self
         {
             $this->description = $description;
+            
             return $this;
         }
 
@@ -75,17 +80,19 @@
         public function setPrix(?int $prix): self
         {
             $this->prix = $prix;
+            
             return $this;
         }
 
-        public function getDatePublication(): ?\DateTimeInterface
+        public function getDatePublication(): ?\DateTime
         {
             return $this->datePublication;
         }
 
-        public function setDatePublication(?\DateTimeInterface $datePublication): self
+        public function setDatePublication(?\DateTime $datePublication): self
         {
             $this->datePublication = $datePublication;
+            
             return $this;
         }
     }

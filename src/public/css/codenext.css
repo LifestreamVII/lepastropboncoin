@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextSemiBold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextSemiBoldItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextBook.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextBookItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Code Next';
+    src: url('../fnt/CodeNext/CodeNextThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}

@@ -1,0 +1,36 @@
+{# templates/layout.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <title>{% block title %}{% endblock %} - LePasTropBonCoin</title>
+            {% include 'base_styles.html.twig' %}
+        {% endblock %}
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="row align-center mt-s">
+                    <div class="col-xl-6 col-12">
+                        <div class="web-logo">
+                            <img src="{{asset('img/layout/logo.png')}}">
+                        </div>
+                    </div>
+                </div>        
+                <div id="content">{% block content %}{% endblock %}</div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-xl-6 col-12">
+                        {% block footer %}
+                            &copy; Copyright 2022 by <a href="http://domain.invalid/">us</a>.
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

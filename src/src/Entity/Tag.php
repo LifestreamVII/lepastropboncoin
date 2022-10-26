@@ -16,6 +16,9 @@ class Tag
     #[ORM\Column(length: 255)]
     private ?string $libelle = null;
 
+    #[ORM\ManyToMany(targetEntity: Annonce::class, inversedBy: 'tags')]
+    private Collection $annonces;
+
     public function getId(): ?int
     {
         return $this->id;

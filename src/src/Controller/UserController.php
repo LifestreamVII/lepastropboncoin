@@ -10,7 +10,6 @@ use Symfony\Component\Security\Core\Security;
 #[Route('/user')]
 class UserController extends AbstractController
 {
-<<<<<<< HEAD
     private $security;
 
     public function __construct(Security $security)
@@ -24,9 +23,6 @@ class UserController extends AbstractController
     }
 
     #[Route('/user', name: 'app_user')]
-=======
-    #[Route('/', name: 'app_user')]
->>>>>>> 2461e3af6befd67efd2ef1ed68e07b9d1fd24ac2
     public function index(): Response
     {
         return $this->render('user/index.html.twig', [

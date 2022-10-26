@@ -26,6 +26,9 @@ class Annonce
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'annonces')]
+    private Collection $tags;
+
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 

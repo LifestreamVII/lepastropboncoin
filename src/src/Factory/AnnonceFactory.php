@@ -41,10 +41,11 @@ final class AnnonceFactory extends ModelFactory
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
             'titre' => self::faker()->realText(10),
-            'auteur' => self::faker()->realText(10),
             'date' => self::faker()->dateTime(),
             'description' => self::faker()->realText(10),
-            'prix' -> self::faker()->randomFloat(2),
+            'prix' => self::faker()->randomFloat(2),
+            'auteur' => UserFactory::random(),
+            'tags' => TagFactory::randomRange(0, 3),
         ];
     }
 

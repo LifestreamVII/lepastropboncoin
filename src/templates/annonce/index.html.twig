@@ -1,4 +1,4 @@
-
+{% extends "base.html.twig" %}
 
 {% block title %}Hello AnnonceController!{% endblock %}
 
@@ -9,13 +9,11 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>\
-    {% for annonce in annonces %}
-        <li> {{ annonce.titre }} </li>
-    {% endfor %}
+    <h1>Hello, here are the ads</h1>
+    <ul>
+        {% for annonce in annonces %}
+            <li> {{ annonce.titre }} </li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}

@@ -41,7 +41,6 @@ final class UserFactory extends ModelFactory
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
             'username' => self::faker()->realText(10),
-            'email' => self::faker()->email(),
         ];
     }
 

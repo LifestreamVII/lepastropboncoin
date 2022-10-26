@@ -9,7 +9,9 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1>Bienvenue, {{ name }}.</h1>
+    {% if app.user is not null %}
+        <h1>Bienvenue, {{ app.user.username }}.</h1>
+    {% endif %}
     <div class="row align-center">
         <div class="col-xl-6 col-12">
             <p class="align-center">

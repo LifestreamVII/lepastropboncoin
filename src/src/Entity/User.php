@@ -6,9 +6,11 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,6 +29,9 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\Column(type: "json")]
+    private $roles = [];
+
     #[ORM\OneToMany(targetEntity: Annonce::class, mappedBy: 'auteur')]
     private $annonces;
 
@@ -44,6 +49,28 @@ class User
      // In this case, an ArrayCollection object is used. 
      // This looks and acts almost exactly like an array, but has some added flexibility. 
      // Just imagine that it is an array and you'll be in good shape
+    
+    public function getRoles(): array
+    {
+            $roles = $this->roles;
+            $roles[] = 'ROLE_USER';
+            return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    public function eraseCredentials(){
+        return false;
+    }
+    
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->username;
+    }
 
     public function getAnnonces(): Collection
     {

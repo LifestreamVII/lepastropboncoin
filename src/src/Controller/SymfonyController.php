@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class SymfonyController extends AbstractController
 {
    /**
@@ -14,8 +13,6 @@ class SymfonyController extends AbstractController
     */
     public function home(): Response
     {
-    return $this->render("home.html.twig", [
-        "name" => "user"
-    ]);
+    return $this->render("home.html.twig");
     }
 }

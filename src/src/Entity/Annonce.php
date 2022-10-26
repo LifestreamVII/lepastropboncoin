@@ -17,8 +17,8 @@ class Annonce
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $auteur = null;
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'annonces')]
+    private $auteur;
 
     #[ORM\Column(nullable: true)]
     private ?float $prix = null;
@@ -46,15 +46,14 @@ class Annonce
         return $this;
     }
 
-    public function getAuteur(): ?string
+    public function getAuteur(): ?User
     {
         return $this->auteur;
     }
 
-    public function setAuteur(string $auteur): self
+    public function setAuteur(?User $auteur): self
     {
         $this->auteur = $auteur;
-
         return $this;
     }
 

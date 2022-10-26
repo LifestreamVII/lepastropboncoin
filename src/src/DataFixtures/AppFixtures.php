@@ -4,6 +4,9 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use App\Factory\UserFactory;
+use App\Factory\TagFactory;
+use App\Factory\AnnonceFactory;
 
 class AppFixtures extends Fixture
 {

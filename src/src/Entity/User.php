@@ -28,26 +28,28 @@ class User
     private ?string $password = null;
 
     #[ORM\OneToMany(targetEntity: Annonce::class, mappedBy: 'auteur')]
-    private $annonces;
+    private Collection $annonces;
 
     public function __construct()
     {
         $this->annonces = new ArrayCollection();
     }
-    /**
-     * @return Collection|Annonce[]
-     */
-
-     // What is the ArrayCollection Stuff?
-     // The code inside __construct() is important: 
-     // The $annonces property must be a collection object that implements Doctrine's Collection interface. 
-     // In this case, an ArrayCollection object is used. 
-     // This looks and acts almost exactly like an array, but has some added flexibility. 
-     // Just imagine that it is an array and you'll be in good shape
 
     public function getAnnonces(): Collection
     {
         return $this->annonces;
+    }
+
+    public function addAnnonces(Annonce $annonce): self
+    {
+        $this->annonces->add($annonce);
+    }
+
+    public function removeAnnonce(Annonce $annonce): self
+    {
+        $this->annonces->removeElement($annonce);
+
+        return $this;
     }
 
     public function getId(): ?int

@@ -4,8 +4,15 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AnnonceRepository;
+use App\Entity\Annonce;
+use App\Entity\Question;
+use App\Entity\Reponse;
+use App\Form\AnnonceType;
+use App\Form\ReponseType;
+use App\Form\QuestionType;
 
 #[Route('/annonce')]
 class AnnonceController extends AbstractController
@@ -22,20 +29,25 @@ class AnnonceController extends AbstractController
     }
 
     #[Route('/add', name: 'add_annonce')]
-    public function add_annonce($wildcard, EntityManagerInterface $em)
+    public function add(Request $request, AnnonceRepository $annonceRepository): Response
     {
-        $maNews = new Annonce();
-        $maNews->setTitre('La première annonce du site'); 
-        $maNews->setDescription($wildcard);
-        $maNews->setPrix(10);
-        $maNews->setAuteur("richard");
-        $maNews->setDate(new DateTime());
+        $annonce = new Annonce();
+        $form = $this->createForm(AnnonceType::class, $annonce);
+        $form->handleRequest($request);
 
-        $em->persist($maNews);
-        $em->flush();
-
-        return $this->render("home.html.twig", [
-            "name" => "user"
+        if ($form->isSubmitted() && $form->isValid()) {
+            $annonce->setAuteur();
+            $tags = $form['tags']->getData();
+            foreach ($tags as $tag) {
+                $annonce->addTag($tag);
+            }
+            $annonceRepository->save($annonce);
+            return $this->redirectToRoute('app_annonce', [], Response::HTTP_SEE_OTHER);
+        }
+        
+        return $this->renderForm('annonce/add.html.twig', [
+            'annonce' => $annonce,
+            'form' => $form,
         ]);
     }
 }

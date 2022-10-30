@@ -5,26 +5,15 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Factory\UserFactory;
+use App\Factory\TagFactory;
+use App\Factory\AnnonceFactory;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-        UserFactory::createOne([
-            'username' => 'lolo23',
-            'firstname' => 'Loïs',
-            'lastname' => 'Lespes',
-            'password' => 'password',
-            'roles' => ['ROLE_ADMIN']
-        ]);
-        UserFactory::createOne([
-            'username' => 'username',
-            'firstname' => 'uno',
-            'lastname' => 'dos',
-            'password' => 'password'
-        ]);
-        $manager->flush();
+        UserFactory::createMany(10);
+        TagFactory::createMany(10);
+        AnnonceFactory::createMany(10);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\TagRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 class Tag
@@ -19,6 +21,11 @@ class Tag
     #[ORM\ManyToMany(targetEntity: Annonce::class, inversedBy: 'tags')]
     private Collection $annonces;
 
+    public function __construct()
+    {
+        $this->annonces = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -32,6 +39,28 @@ class Tag
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getAnnonces(): Collection
+    {
+        return $this->annonces;
+    }
+
+    public function addAnnonce(Annonce $annonce): self
+    {
+        if (!$this->annonces->contains($annonce))
+        {
+            $this->annonces->add($annonce);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnonce(Annonce $annonce): self
+    {
+        $this->annonces->removeElement($annonce);
 
         return $this;
     }

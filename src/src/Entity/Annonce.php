@@ -22,6 +22,9 @@ class Annonce
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'annonces')]
     private $auteur;
 
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'annonce')]
+    private $questions;
+
     #[ORM\Column(nullable: true)]
     private ?float $prix = null;
 
@@ -36,6 +39,7 @@ class Annonce
 
     public function __construct()
     {
+        $this->questions = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
     public function getId(): ?int
@@ -51,6 +55,27 @@ class Annonce
     public function setTitre(string $titre): self
     {
         $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getQuestions(): Collection
+    {
+        return $this->questions;
+    }
+
+    public function addQuestion(Question $question): self
+    {
+        if(!$this->questions->contains($question))
+        {
+            $this->questions->add($question);
+        }
+        return $this;
+    }
+
+    public function removeQuestion(Question $question): self
+    {
+        $this->questions->removeElement($question);
 
         return $this;
     }

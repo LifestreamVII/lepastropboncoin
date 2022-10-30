@@ -1,0 +1,27 @@
+
+{% extends "layout.html.twig" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <div class="row align-center">
+        <div class="col-xl-6 col-12">
+        <h1 class="">Please register</h1>
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.username) }}
+                {{ form_row(registrationForm.firstname, {
+                    label: 'First Name'
+                }) }}
+                {{ form_row(registrationForm.lastname, {
+                    label: 'Last Name'
+                }) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

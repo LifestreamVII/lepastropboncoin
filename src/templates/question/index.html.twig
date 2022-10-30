@@ -9,9 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello ✅</h1>
 
     This friendly message is coming from:
+    {{ question.auteur.getUsername() }}
+    <br>
+    <br>
+    {{ question.description }}
+    <br>
     <ul>
         <li>Your controller at <code><a href="{{ '/var/www/html/src/Controller/QuestionController.php'|file_link(0) }}">src/Controller/QuestionController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/var/www/html/templates/question/index.html.twig'|file_link(0) }}">templates/question/index.html.twig</a></code></li>

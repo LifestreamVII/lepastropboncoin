@@ -15,7 +15,7 @@ class Question
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'questions')]
+    #[ORM\ManyToOne(targetEntity: User::class)]
     private $auteur;
 
     #[ORM\ManyToOne(targetEntity: Annonce::class, inversedBy: 'questions')]

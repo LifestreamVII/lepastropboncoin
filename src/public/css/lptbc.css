@@ -72,3 +72,15 @@ footer{
     background-color: #630a0a;
     background-position: 0 -15px
 }
+
+form input{
+    margin: 1% 0;
+}
+
+form label{
+    margin: 0 1%;
+}
+
+form button{
+    margin-top: 2%;
+}

@@ -1,0 +1,17 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block content %}
+    {% if app.user is not null %}
+        <h1>Bonjour, {{ app.user.username }}.</h1>
+    {% endif %}
+    <div class="row align-center">
+        <div class="col-xl-6 col-12">
+            <p class="align-center">
+                Vous avez {{ annonces|length }} annonces en ligne.
+            </p>
+            <button class="btn btn-primary">Vendre un objet</button>
+        </div>
+    </div>
+{% endblock %}

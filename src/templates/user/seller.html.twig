@@ -1,0 +1,17 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block content %}
+    {% if user is not null %}
+        <h1>Profil de {{ user.username }}.</h1>
+    {% endif %}
+    <div class="row align-center">
+        <div class="col-xl-6 col-12">
+            <p class="align-center">
+                Ce vendeur a {{ annonces|length }} annonces en ligne.
+            </p>
+            <button class="btn btn-primary">Vendre un objet</button>
+        </div>
+    </div>
+{% endblock %}

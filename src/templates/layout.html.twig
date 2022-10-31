@@ -16,8 +16,34 @@
                             <img src="{{asset('img/layout/logo.png')}}">
                         </div>
                     </div>
-                </div>        
-                <div id="content">{% block content %}{% endblock %}</div>
+                </div>
+                <div class="navbar row align-center mt-s">
+                    <div class="navitem">
+                        <a href="{{path('app_home')}}">Accueil</a>
+                    </div>
+                    <div class="navitem">
+                        <a href="">Explorer</a>
+                    </div>
+                    {% if app.user %}
+                    <div class="navitem">
+                        <a href="{{path('app_sell')}}">Vendre</a>
+                    </div>
+                    <div class="navitem">
+                        <a href="{{path('app_profile')}}">Mon compte</a>
+                    </div>
+                    <div class="navitem">
+                        <a href="{{path('app_logout')}}">Déconnexion</a>
+                    </div>
+                    {% else %}
+                    <div class="navitem">
+                        <a href="{{path('app_login')}}">Connexion</a>
+                    </div>
+                    <div class="navitem">
+                        <a href="{{path('app_register')}}">Inscription</a>
+                    </div>
+                    {% endif %}
+                </div>
+                <div id="content" class="mt-m">{% block content %}{% endblock %}</div>
             </div>
         </main>
         

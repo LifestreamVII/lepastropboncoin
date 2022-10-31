@@ -40,7 +40,7 @@ class AnnonceController extends AbstractController
        $this->security = $security;
     }
 
-    #[Route('/add', name: 'add_annonce')]
+    #[Route('/add', name: 'app_sell')]
     public function add(Request $request, EntityManagerInterface $entityManager, UploadHelper $Helper): Response
     {
         $user = $this->security->getUser();

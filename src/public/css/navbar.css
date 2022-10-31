@@ -1,0 +1,16 @@
+.navbar{
+    margin: 0 auto;
+    text-align: center;
+}
+.navbar > .navitem{
+    font-size: 15px;
+    margin: 0 2%;
+    text-decoration: underline;
+    color: white;
+}
+.navbar a:visited{
+    color: white;
+}
+.navbar a:hover{
+    color: gray;
+}

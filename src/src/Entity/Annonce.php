@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AnnonceRepository;
+use App\Service\UploadHelper;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -36,6 +37,9 @@ class Annonce
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
+
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private array $file = [];
 
     public function __construct()
     {
@@ -145,6 +149,20 @@ class Annonce
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getFile(): array
+    {
+        return count($this->file)<1 ?
+        [UploadHelper::DEFAULT_IMAGE] 
+        : $this->file;
+    }
+
+    public function setFile(?array $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

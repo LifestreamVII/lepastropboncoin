@@ -55,18 +55,15 @@
     </div>
 
     <div>
-        {{ form_row(form.date,
-            {
-                'attr': {
-                    'class': 'border',
-                    'placeholder': 'Date'
-                },
-                'label': false
-            })
+        {{ form_row(form.file,
+                {
+                'label': "Upload"
+                }
+            )
         }}
     </div>
 
     <div class="d-grid">
-        <button class="btn btn-dark rounded-0">{{ button_label|default('Save') }}</button>
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
     </div>
 {{ form_end(form) }}

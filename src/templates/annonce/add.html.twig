@@ -1,21 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends "layout.html.twig" %}
 
-{% block title %}Créer une annonce{% endblock %}
+{% block title %}Ajouter une annonce{% endblock %}
 
-{% block body %}
-    <div>
-        <h1>Déposer une annonce</h1>
-
-        <div class="row">
-            <div class="col-4">
-
-                {{ include('annonce/form.html.twig', {'button_label': 'Publier'}) }}
-
-                <div>
-                    <a href="{{ path('app_annonce') }}" class="btn btn-link">retour a la liste</a>
-                </div>
-            </div>
+{% block content %}
+    <div class="row align-center">
+        <div class="col-xl-6 col-12">
+            <h1 class="">Ajouter une annonce</h1>
+            {{ include('annonce/form.html.twig', {'button_label': 'Publier'}) }}
         </div>
-
     </div>
 {% endblock %}

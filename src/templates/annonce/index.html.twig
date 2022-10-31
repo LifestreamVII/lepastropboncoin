@@ -12,7 +12,7 @@
     <h1>Liste des annonces</h1>
     <ul>
         {% for annonce in annonces %}
-            <li> {{ annonce.titre }} </li>
+            <li> {{ annonce.titre }} <img src="{{ asset(imagepath ~ annonce.file|first)|imagine_filter('square_thumb') }}"></li>
         {% endfor %}
     </ul>
 </div>

@@ -5,11 +5,14 @@ namespace App\Form;
 use App\Entity\Annonce;
 use App\Entity\Tag;
 use App\Repository\TagRepository;
+use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Count;
+use Symfony\Component\Validator\Constraints\All;
 
 class AnnonceType extends AbstractType
 {
@@ -19,7 +22,22 @@ class AnnonceType extends AbstractType
             ->add('titre')
             ->add('prix')
             ->add('description')
-            ->add('date')
+            ->add('file',FileType::class, array(
+                'multiple'    => true,
+                'mapped' => false,
+                'constraints' => [
+                    new All([
+                        new Image([
+                            'maxSize' => '2M',
+                            'maxSizeMessage' => 'Filesize too large.'
+                        ])
+                    ])
+                    ],
+                'attr' => array(
+                    'accept' => 'image/*',
+                )
+            )
+            )
             ->add('tags', EntityType::class, [
                 'class' => Tag::class,
                 'query_builder' => function (TagRepository $tagRepository) {

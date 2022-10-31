@@ -8,7 +8,7 @@ class UploadHelper
 {
     const IMAGE_PATH = "uploads/images/";
     const SAVE_PATH = "/public/uploads/images/";
-    const DEFAULT_IMAGE = "default.jpg";
+    const DEFAULT_IMAGE = "default.png";
     private string $projectDir;
     public function __construct(string $projectDir)
     {

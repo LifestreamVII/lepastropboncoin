@@ -38,6 +38,9 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'app_seller', requirements: ['id' => '\d+'])]
     public function showSeller(User $user): Response
     {
+        if ($user == $this->getLoggedInUser()){
+            return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
+        }
         return $this->render('user/seller.html.twig', [
             'user' => $user,
             "annonces" => $user->getAnnonces()

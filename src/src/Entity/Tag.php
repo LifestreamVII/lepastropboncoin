@@ -53,15 +53,15 @@ class Tag
         if (!$this->annonces->contains($annonce))
         {
             $this->annonces->add($annonce);
+            $annonce->addTag($this);
         }
-
         return $this;
     }
 
     public function removeAnnonce(Annonce $annonce): self
     {
         $this->annonces->removeElement($annonce);
-
+        $annonce->removeTag($this);
         return $this;
     }
 }

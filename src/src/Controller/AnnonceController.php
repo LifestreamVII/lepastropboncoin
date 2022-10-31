@@ -29,8 +29,7 @@ class AnnonceController extends AbstractController
         return $this->render('annonce/index.html.twig', [
             'controller_name' => 'AnnonceController',
             'FIRSTNAM' => 'User',
-            'annonces' => $annonces,
-            'imagepath' => UploadHelper::IMAGE_PATH,
+            'annonces' => $annonces
         ]);
     }
 

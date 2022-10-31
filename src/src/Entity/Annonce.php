@@ -141,15 +141,15 @@ class Annonce
         if(!$this->tags->contains($tag))
         {
             $this->tags->add($tag);
+            $tag->addAnnonce($this);
         }
-
         return $this;
     }
 
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
-
+        $tag->removeAnnonce($this);
         return $this;
     }
 

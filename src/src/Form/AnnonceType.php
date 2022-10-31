@@ -24,6 +24,7 @@ class AnnonceType extends AbstractType
             ->add('description')
             ->add('file',FileType::class, array(
                 'multiple'    => true,
+                'required' => false,
                 'mapped' => false,
                 'constraints' => [
                     new All([

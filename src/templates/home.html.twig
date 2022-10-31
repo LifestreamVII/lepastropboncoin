@@ -20,4 +20,30 @@
             <button class="btn btn-primary">Vendre un objet</button>
         </div>
     </div>
+    <div class="row align-left mt-m">
+        <div class="col-12">
+            <div>
+                <span class="align-left h5">
+                    Dernières annonces déposées dans nos catégories :
+                </span>
+            </div>
+            {% for category in categories %}
+            <div class="category">
+                    <h3>{{ category.libelle }}</h3>
+                    <div class="list">
+                        {% for annonce in category.getAnnonces() %}
+                            <div class="annonce">
+                                <div class="thumbnail">
+                                    <img src="{{ asset(imagepath ~ annonce.file|first)|imagine_filter('square_thumb') }}">
+                                </div>
+                                <p class="fs-s mb-none">{{ annonce.titre }}</p>
+                                <p class="fs-es mt-none">Vendu par <a href="{{ path('app_seller', { 'id': annonce.auteur.id }) }}">{{ annonce.auteur.username }}</a></p>
+                                <p>{{ annonce.prix }} €</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

@@ -455,6 +455,15 @@
                 0 => '2.0|3.0',
             ),
         ),
+        'symfony/expression-language' => array(
+            'pretty_version' => 'v6.1.6',
+            'version' => '6.1.6.0',
+            'reference' => 'd1538560c075007d3dfd1f8e3a05e43a5ff13fd6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/expression-language',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/filesystem' => array(
             'pretty_version' => 'v6.1.5',
             'version' => '6.1.5.0',

@@ -65,6 +65,7 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
             'Symfony\\Component\\Form\\' => 23,
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\Filesystem\\' => 29,
+            'Symfony\\Component\\ExpressionLanguage\\' => 37,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\Dotenv\\' => 25,
@@ -288,6 +289,10 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         'Symfony\\Component\\Filesystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/filesystem',
+        ),
+        'Symfony\\Component\\ExpressionLanguage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/expression-language',
         ),
         'Symfony\\Component\\EventDispatcher\\' => 
         array (
@@ -3977,6 +3982,28 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         'Symfony\\Component\\EventDispatcher\\EventSubscriberInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventSubscriberInterface.php',
         'Symfony\\Component\\EventDispatcher\\GenericEvent' => __DIR__ . '/..' . '/symfony/event-dispatcher/GenericEvent.php',
         'Symfony\\Component\\EventDispatcher\\ImmutableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/ImmutableEventDispatcher.php',
+        'Symfony\\Component\\ExpressionLanguage\\Compiler' => __DIR__ . '/..' . '/symfony/expression-language/Compiler.php',
+        'Symfony\\Component\\ExpressionLanguage\\Expression' => __DIR__ . '/..' . '/symfony/expression-language/Expression.php',
+        'Symfony\\Component\\ExpressionLanguage\\ExpressionFunction' => __DIR__ . '/..' . '/symfony/expression-language/ExpressionFunction.php',
+        'Symfony\\Component\\ExpressionLanguage\\ExpressionFunctionProviderInterface' => __DIR__ . '/..' . '/symfony/expression-language/ExpressionFunctionProviderInterface.php',
+        'Symfony\\Component\\ExpressionLanguage\\ExpressionLanguage' => __DIR__ . '/..' . '/symfony/expression-language/ExpressionLanguage.php',
+        'Symfony\\Component\\ExpressionLanguage\\Lexer' => __DIR__ . '/..' . '/symfony/expression-language/Lexer.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\ArgumentsNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/ArgumentsNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\ArrayNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/ArrayNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\BinaryNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/BinaryNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\ConditionalNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/ConditionalNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\ConstantNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/ConstantNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\FunctionNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/FunctionNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\GetAttrNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/GetAttrNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\NameNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/NameNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\Node' => __DIR__ . '/..' . '/symfony/expression-language/Node/Node.php',
+        'Symfony\\Component\\ExpressionLanguage\\Node\\UnaryNode' => __DIR__ . '/..' . '/symfony/expression-language/Node/UnaryNode.php',
+        'Symfony\\Component\\ExpressionLanguage\\ParsedExpression' => __DIR__ . '/..' . '/symfony/expression-language/ParsedExpression.php',
+        'Symfony\\Component\\ExpressionLanguage\\Parser' => __DIR__ . '/..' . '/symfony/expression-language/Parser.php',
+        'Symfony\\Component\\ExpressionLanguage\\SerializedParsedExpression' => __DIR__ . '/..' . '/symfony/expression-language/SerializedParsedExpression.php',
+        'Symfony\\Component\\ExpressionLanguage\\SyntaxError' => __DIR__ . '/..' . '/symfony/expression-language/SyntaxError.php',
+        'Symfony\\Component\\ExpressionLanguage\\Token' => __DIR__ . '/..' . '/symfony/expression-language/Token.php',
+        'Symfony\\Component\\ExpressionLanguage\\TokenStream' => __DIR__ . '/..' . '/symfony/expression-language/TokenStream.php',
         'Symfony\\Component\\Filesystem\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/filesystem/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Filesystem\\Exception\\FileNotFoundException' => __DIR__ . '/..' . '/symfony/filesystem/Exception/FileNotFoundException.php',
         'Symfony\\Component\\Filesystem\\Exception\\IOException' => __DIR__ . '/..' . '/symfony/filesystem/Exception/IOException.php',

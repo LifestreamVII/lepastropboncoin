@@ -36,6 +36,7 @@ footer{
     white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
+    text-decoration: none;
     color: white;
     -webkit-user-select: none;
     -moz-user-select: none;

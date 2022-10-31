@@ -14,6 +14,7 @@ use App\Entity\Reponse;
 use App\Form\AnnonceType;
 use App\Form\ReponseType;
 use App\Form\QuestionType;
+use App\Repository\TagRepository;
 use App\Service\UploadHelper;
 use DateTime;
 use Symfony\Component\Security\Core\Security;
@@ -23,13 +24,14 @@ use Symfony\Component\Security\Core\Security;
 class AnnonceController extends AbstractController
 {
     #[Route('/', name: 'app_annonce')]
-    public function index(AnnonceRepository $repository): Response
+    public function index(AnnonceRepository $repository, TagRepository $tagRepo): Response
     {
         $annonces = $repository->findAll();
+        $tags = $tagRepo->findAll();
         return $this->render('annonce/index.html.twig', [
             'controller_name' => 'AnnonceController',
-            'FIRSTNAM' => 'User',
-            'annonces' => $annonces
+            'annonces' => $annonces,
+            "categories" => $tags
         ]);
     }
 

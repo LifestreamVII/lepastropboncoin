@@ -42,6 +42,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('user/seller.html.twig', [
+            'rating' => $user->fetchRating(),
             'user' => $user,
             "annonces" => $user->getAnnonces()
         ]);

@@ -4,13 +4,19 @@
 
 {% block content %}
     {% if user is not null %}
-        <h1>Profil de {{ user.username }}.</h1>
+        <h1>Profil de {{ user.username }}</h1>
     {% endif %}
     <div class="row align-center">
         <div class="col-xl-6 col-12">
-            <p class="align-center">
+            <p class="align-center mb-none">
                 Ce vendeur a {{ annonces|length }} annonces en ligne.
             </p>
+            <p class="align-center mt-none">
+                Score de {{ rating[1] }}% - {{ rating[0] }} évaluation(s)
+            </p>
+            <div>
+                <a class="btn btn-primary" href="{{ path('app_vote_add', { 'id': user.id }) }}">Évaluer</a>
+            </div>
         </div>
     </div>
     <div class="row align-left mt-m">

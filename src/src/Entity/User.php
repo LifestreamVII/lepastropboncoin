@@ -37,9 +37,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Annonce::class, mappedBy: 'auteur')]
     private $annonces;
 
+    #[ORM\OneToMany(mappedBy: 'auteur', targetEntity: Vote::class, orphanRemoval: true)]
+    private Collection $votes;
+
+    #[ORM\OneToMany(mappedBy: 'cible', targetEntity: Vote::class, orphanRemoval: true)]
+    private Collection $ratings;
+
     public function __construct()
     {
         $this->annonces = new ArrayCollection();
+        $this->votes = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
     }
     /**
      * @return Collection|Annonce[]
@@ -128,6 +136,78 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vote>
+     */
+    public function getVotes(): Collection
+    {
+        return $this->votes;
+    }
+
+    public function addVote(Vote $vote): self
+    {
+        if (!$this->votes->contains($vote)) {
+            $this->votes->add($vote);
+            $vote->setAuteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVote(Vote $vote): self
+    {
+        if ($this->votes->removeElement($vote)) {
+            // set the owning side to null (unless already changed)
+            if ($vote->getAuteur() === $this) {
+                $vote->setAuteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vote>
+     */
+    public function getratings(): Collection
+    {
+        return $this->ratings;
+    }
+
+    public function fetchRating(): array{
+        $votes = $this->getratings();
+        $rating = [0, 0];
+        foreach($votes as $vote){
+            $rating[0]+=$vote->getUpDown();
+        }
+        $rating[1] = round($rating[0]/count($votes)*100, 1);
+        if ($rating[1] < 0) $rating[1] = 0;
+        $rating[0] = count($votes);
+        return $rating;
+    }
+
+    public function addrating(Vote $rating): self
+    {
+        if (!$this->ratings->contains($rating)) {
+            $this->ratings->add($rating);
+            $rating->setCible($this);
+        }
+
+        return $this;
+    }
+
+    public function removerating(Vote $rating): self
+    {
+        if ($this->ratings->removeElement($rating)) {
+            // set the owning side to null (unless already changed)
+            if ($rating->getCible() === $this) {
+                $rating->setCible(null);
+            }
+        }
 
         return $this;
     }

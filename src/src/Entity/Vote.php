@@ -13,52 +13,53 @@ class Vote
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $seller_id = null;
+    #[ORM\Column(length: 2)]
+    private ?int $up_down = null;
 
-    #[ORM\Column]
-    private ?int $user_id = null;
+    #[ORM\ManyToOne(inversedBy: 'votes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $auteur = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $up_down = null;
+    #[ORM\ManyToOne(inversedBy: 'ratings')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $cible = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getSellerId(): ?int
-    {
-        return $this->seller_id;
-    }
-
-    public function setSellerId(int $seller_id): self
-    {
-        $this->seller_id = $seller_id;
-
-        return $this;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): self
-    {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
-
-    public function getUpDown(): ?string
+    public function getUpDown(): ?int
     {
         return $this->up_down;
     }
 
-    public function setUpDown(string $up_down): self
+    public function setUpDown(int $up_down): self
     {
         $this->up_down = $up_down;
+        return $this;
+    }
+
+    public function getAuteur(): ?User
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(?User $auteur): self
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    public function getCible(): ?User
+    {
+        return $this->cible;
+    }
+
+    public function setCible(?User $cible): self
+    {
+        $this->cible = $cible;
 
         return $this;
     }

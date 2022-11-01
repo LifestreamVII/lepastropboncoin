@@ -48,6 +48,8 @@ class QuestionController extends AbstractController
 
             $entityManager->persist($question);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_details_annonce', ["id"=>$annonce->getId()]);
             
         }
 
@@ -79,6 +81,8 @@ class QuestionController extends AbstractController
     
                 $entityManager->persist($reponse);
                 $entityManager->flush();
+
+                return $this->redirectToRoute('app_details_annonce', ["id"=>$annonce->getId()]);
             }
     
             return $this->render('question/add.html.twig', [

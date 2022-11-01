@@ -184,9 +184,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         foreach($votes as $vote){
             $rating[0]+=$vote->getUpDown();
         }
-        $rating[1] = round($rating[0]/count($votes)*100, 1);
-        if ($rating[1] < 0) $rating[1] = 0;
-        $rating[0] = count($votes);
+        if (count($votes) > 0) {
+            $rating[1] = round($rating[0]/count($votes)*100, 1);
+            if ($rating[1] < 0) $rating[1] = 0;
+            $rating[0] = count($votes);
+        } else { $rating[0] = 0; $rating[1] = 0; }
         return $rating;
     }
 

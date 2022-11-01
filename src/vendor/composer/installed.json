@@ -1590,6 +1590,44 @@
             "install-path": "../doctrine/sql-formatter"
         },
         {
+            "name": "easybook/slugger",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easybook/slugger.git",
+                "reference": "40609cd6b6019c5f194affe01f88c049f428e04e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easybook/slugger/zipball/40609cd6b6019c5f194affe01f88c049f428e04e",
+                "reference": "40609cd6b6019c5f194affe01f88c049f428e04e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2014-04-08T20:29:46+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Easybook": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A fast and easy to use slugger with full UTF-8 support.",
+            "support": {
+                "issues": "https://github.com/easybook/slugger/issues",
+                "source": "https://github.com/easybook/slugger/tree/1.0.0"
+            },
+            "abandoned": "javiereguiluz/slugger",
+            "install-path": "../easybook/slugger"
+        },
+        {
             "name": "fakerphp/faker",
             "version": "v1.20.0",
             "version_normalized": "1.20.0.0",

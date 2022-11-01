@@ -497,6 +497,16 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'E' => 
+        array (
+            'Easybook' => 
+            array (
+                0 => __DIR__ . '/..' . '/easybook/slugger/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'App\\Controller\\AddAnnonce' => __DIR__ . '/../..' . '/src/Controller/AddAnnonce.php',
         'App\\Controller\\AnnonceController' => __DIR__ . '/../..' . '/src/Controller/AnnonceController.php',
@@ -505,6 +515,7 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\Controller\\SymfonyController' => __DIR__ . '/../..' . '/src/Controller/SymfonyController.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
+        'App\\Controller\\VoteController' => __DIR__ . '/../..' . '/src/Controller/VoteController.php',
         'App\\DataFixtures\\AppFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/AppFixtures.php',
         'App\\Entity\\Annonce' => __DIR__ . '/../..' . '/src/Entity/Annonce.php',
         'App\\Entity\\Question' => __DIR__ . '/../..' . '/src/Entity/Question.php',
@@ -512,6 +523,7 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         'App\\Entity\\Tag' => __DIR__ . '/../..' . '/src/Entity/Tag.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Entity\\Vote' => __DIR__ . '/../..' . '/src/Entity/Vote.php',
+        'App\\EventSubscriber\\ExceptionSubscriber' => __DIR__ . '/../..' . '/src/EventSubscriber/ExceptionSubscriber.php',
         'App\\Factory\\AnnonceFactory' => __DIR__ . '/../..' . '/src/Factory/AnnonceFactory.php',
         'App\\Factory\\QuestionFactory' => __DIR__ . '/../..' . '/src/Factory/QuestionFactory.php',
         'App\\Factory\\ReponseFactory' => __DIR__ . '/../..' . '/src/Factory/ReponseFactory.php',
@@ -520,6 +532,7 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         'App\\Form\\AnnonceType' => __DIR__ . '/../..' . '/src/Form/AnnonceType.php',
         'App\\Form\\QuestionFormType' => __DIR__ . '/../..' . '/src/Form/QuestionFormType.php',
         'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',
+        'App\\Form\\ReponseFormType' => __DIR__ . '/../..' . '/src/Form/ReponseFormType.php',
         'App\\Form\\ReponseType' => __DIR__ . '/../..' . '/src/Form/ReponseType.php',
         'App\\Form\\TagType' => __DIR__ . '/../..' . '/src/Form/TagType.php',
         'App\\Form\\VoteType' => __DIR__ . '/../..' . '/src/Form/VoteType.php',
@@ -1704,6 +1717,11 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         'Doctrine\\SqlFormatter\\SqlFormatter' => __DIR__ . '/..' . '/doctrine/sql-formatter/src/SqlFormatter.php',
         'Doctrine\\SqlFormatter\\Token' => __DIR__ . '/..' . '/doctrine/sql-formatter/src/Token.php',
         'Doctrine\\SqlFormatter\\Tokenizer' => __DIR__ . '/..' . '/doctrine/sql-formatter/src/Tokenizer.php',
+        'Easybook\\SeoSlugger' => __DIR__ . '/..' . '/easybook/slugger/src/Easybook/SeoSlugger.php',
+        'Easybook\\SeoUtf8Slugger' => __DIR__ . '/..' . '/easybook/slugger/src/Easybook/SeoUtf8Slugger.php',
+        'Easybook\\Slugger' => __DIR__ . '/..' . '/easybook/slugger/src/Easybook/Slugger.php',
+        'Easybook\\SluggerInterface' => __DIR__ . '/..' . '/easybook/slugger/src/Easybook/SluggerInterface.php',
+        'Easybook\\Utf8Slugger' => __DIR__ . '/..' . '/easybook/slugger/src/Easybook/Utf8Slugger.php',
         'Faker\\Calculator\\Ean' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Ean.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Inn.php',
@@ -5604,6 +5622,7 @@ class ComposerStaticInitef37740e835e110fb1f96076fb29fe9c
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitef37740e835e110fb1f96076fb29fe9c::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitef37740e835e110fb1f96076fb29fe9c::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitef37740e835e110fb1f96076fb29fe9c::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitef37740e835e110fb1f96076fb29fe9c::$classMap;
 
         }, null, ClassLoader::class);

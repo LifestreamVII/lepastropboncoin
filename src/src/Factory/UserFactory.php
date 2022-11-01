@@ -4,10 +4,11 @@ namespace App\Factory;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-//use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Zenstruck\Foundry\RepositoryProxy;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
+use App\Service\PasswordHasher;
 
 /**
  * @extends ModelFactory<User>
@@ -30,10 +31,12 @@ use Zenstruck\Foundry\Proxy;
  */
 final class UserFactory extends ModelFactory
 {
-    //private $hasher;
+    private $hasher;
 
-    public function __construct(/*UserPasswordHasherInterface $hasher*/)
+    public function __construct(PasswordHasher $passhash)
     {
+        $this->slugger = new AsciiSlugger();
+        $this->hasher = $passhash;
         parent::__construct();
         //$this->hasher = $hasher;
         // TODO inject services if required (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services)
@@ -43,10 +46,10 @@ final class UserFactory extends ModelFactory
     {
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
-            'username' => self::faker()->realText(10),
+            'username' => preg_replace("/[^a-zA-Z]+/", "", self::faker()->realText(10)),
             'last_name' => self::faker()->realText(10),
             'first_name' => self::faker()->realText(10),
-            'password' => self::faker()->realText(15),
+            'password' => $this->hasher->encodePassword("password"),
         ];
     }
 

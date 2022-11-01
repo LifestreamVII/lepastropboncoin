@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Supprimer une annonce{% endblock %}
+{% block content %}
+    <div class="row align-left mt-m">
+        <div class="col-12">
+            <div>
+                <span class="align-left h5">
+                    Vous allez supprimer cette annonce :
+                </span>
+            </div>
+            <div class="row align-center">
+                <div class="annonce">
+                    <div class="thumbnail">
+                        <img src="{{ asset(imagepath ~ annonce.file|first)|imagine_filter('square_thumb') }}">
+                    </div>
+                    <p class="fs-s mb-none">{{ annonce.titre }}</p>
+                    <p>{{ annonce.prix }} €</p>
+                </div>
+            </div>
+            <div class="row align-center mb-m">
+                <form method="post" action="">
+                    <button class="btn btn-primary" type="submit" name="confirm" value="yes">Confirmer</button>
+                    <button class="btn" type="submit" name="confirm" value="no">Retour à l'accueil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

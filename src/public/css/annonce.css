@@ -27,13 +27,39 @@
 
 .annonce .thumbnail{
     width: 98%;
+    display: block;
     height: 230px;
     object-fit: cover;
     border: solid 1px gray;
+}
+
+.annonce-big .prix{
+    padding: 8px 15px;
+    border-radius: 12px;
+    width: fit-content;
+    background-color: #4555;
+    border: 2px solid white;
+}
+.annonce-big .prix > p{
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .annonce .thumbnail img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+.questions{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    list-style: none;
+}
+
+.questions .question_item{
+    padding: 3% 0;
+    width: 100%;
+    border: solid 2px white;
 }

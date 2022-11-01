@@ -1,0 +1,50 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} {{ annonce.titre }} - {{ annonce.auteur.username }} {% endblock %}
+{% block content %}
+    <div class="row align-left mt-m">
+        <div class="col-12">
+            <div>
+                <p class="align-left fs-s">
+                    Vendu par <a href="{{ path('app_seller', { 'id': annonce.auteur.id }) }}">{{ annonce.auteur.username }}</a>
+                </p>
+                <h3 class="">{{ annonce.titre }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-left mt-s annonce-big">
+        <div class="thumbnail col-md-7 col-12">
+            <img src="{{ asset(imagepath ~ annonce.file|first)|imagine_filter('square_thumb') }}">
+        </div>
+        <div class="col-md-4 col-12">
+            <p class="fs-s mb-none">{{ annonce.description }}</p>
+            <div class="prix">
+                <p>{{ annonce.prix }} €</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-left mt-m">
+        <div class="col-12">
+            <div>
+                <h4 class="mb-none">Questions posées par les acheteurs</h4>
+                    {% if annonce.questions is empty %}
+                        <p class="mt-es align-left fs-s">Aucune question posée pour le moment.</p>
+                    {% endif %}
+                    <ul class="questions align-center">
+                        {% for question in annonce.questions %}
+                            <li class="question_item align-center">
+                                <a href="{{ path('app_question', { 'id': question.id }) }}" class="ml-s align-left">
+                                    <p>{{ question.description }}</p>
+                                </a>
+                                <div class="mr-s align-right">
+                                    <p class="mb-none align-right">Posée par <a href="{{ path('app_seller', { 'id': question.auteur.id }) }}">{{ question.auteur.username }}</a></p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

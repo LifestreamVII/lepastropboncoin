@@ -1,7 +1,12 @@
 liip_imagine:
+    driver: "gd"
     resolvers:
         default:
             web_path: ~
+    loaders:
+        default:
+            filesystem:
+                data_root: "%kernel.project_dir%/public/"
 
     filter_sets:
         cache: ~

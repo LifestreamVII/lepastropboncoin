@@ -72,4 +72,36 @@ class AnnonceController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/remove/{id}', name: 'app_delete_annonce')]
+    public function remove(Request $request, EntityManagerInterface $entityManager, Annonce $annonce): Response
+    {
+        $user = $this->security->getUser();
+        if ($user == $annonce->getAuteur()){
+            if ($request->isMethod('post') && $request->get('confirm') == "yes") {
+                $entityManager->remove($annonce);
+                $entityManager->flush();
+                return $this->redirectToRoute('app_home', [], 307);
+            }
+            else if ($request->isMethod('post') && $request->get('confirm') == "no") {
+                return $this->redirectToRoute('app_home',);
+            }
+            else{                
+                return $this->renderForm('annonce/delete.html.twig', [
+                    'annonce' => $annonce
+                ]);
+            }
+        }
+        else{
+            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+        }
+    }
+
+    #[Route('/details/{id}', name: 'app_details_annonce')]
+    public function showDetails(Request $request, EntityManagerInterface $entityManager, Annonce $annonce): Response
+    {
+        return $this->renderForm('annonce/details.html.twig', [
+            'annonce' => $annonce
+        ]);
+    }
 }

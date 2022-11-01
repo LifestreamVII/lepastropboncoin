@@ -23,7 +23,7 @@ class Annonce
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'annonces')]
     private $auteur;
 
-    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'annonce')]
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'annonce', cascade: ["remove"])]
     private $questions;
 
     #[ORM\Column(nullable: true)]

@@ -14,7 +14,7 @@ class Reponse
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'reponses')]
+    #[ORM\ManyToOne(inversedBy: 'reponses', cascade: ["remove"])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Question $question = null;
 

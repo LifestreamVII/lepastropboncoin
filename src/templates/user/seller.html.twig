@@ -22,14 +22,7 @@
             </div>
             <div class="list">
                 {% for annonce in annonces %}
-                    <div class="annonce">
-                        <div class="thumbnail">
-                            <img src="{{ asset(imagepath ~ annonce.file|first)|imagine_filter('square_thumb') }}">
-                        </div>
-                        <p class="fs-s mb-none">{{ annonce.titre }}</p>
-                        <p class="fs-es mt-none">Vendu par <a href="{{ path('app_seller', { 'id': annonce.auteur.id }) }}">{{ annonce.auteur.username }}</a></p>
-                        <p>{{ annonce.prix }} €</p>
-                    </div>
+                        {% include ('annonce/annonce-sm.html.twig') %}
                 {% endfor %}
             </div>
         </div>

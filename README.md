@@ -37,4 +37,4 @@ chmod -R 777 src/public/*
 
 ## 💻 Demo
 
-à venir
+<a href="https://lbc.na-no.pro" target="_blank">Demo</a>
